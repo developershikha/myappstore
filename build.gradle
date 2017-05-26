@@ -1,6 +1,4 @@
 apply plugin: 'java'
-apply plugin: 'idea'
-
 
 version = '1.0.0'
 
@@ -33,9 +31,9 @@ task fatJar(type: Jar) {
 	manifest {
         attributes 'Implementation-Title': 'Gradle Jar File Example',
         	'Implementation-Version': version,
-        	'Main-Class': 'com.mkyong.DateUtils'
+        	'Main-Class': 'sample.Application'
     }
-    baseName = project.name
+    baseName = project.name+"-all"
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
